@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">xx Gym</string>
+    <string name="zhanghao">Username：</string>
+    <string name="mima">Password：</string>
+    <string name="denglu">Log in</string>
+    <string name="zhuce">Register</string>
+    <string name="shopping">shopping</string>
+    <string name="string_shopping" />
+    <string name="button">button</string>
+    <string name="home">Home</string>
+    <string name="advertising">advertising</string>
+    <string name="other">other</string>
+    <string name="equipment">equipment</string>
+    <string name="ball">ball</string>
+    <string name="men_shoes">men shoes</string>
+    <string name="women_shoes">women shoes</string>
+    <string name="todo">TODO</string>
+    <string name="women_trousers">women trousers</string>
+    <string name="men_trousers">men trousers</string>
+    <string name="women_coat">women coat</string>
+    <string name="men_coat">men coat</string>
+    <string name="back">Back</string>
+    <string name="buttontext">Button</string>
+
+    <string name="logout">Log out</string>
+    <string name="setting">Setting</string>
+    <string name="support">Customer service</string>
+    <string name="menu">Home</string>
+    //user center--body statistics
+    <string name="time_total">Time:\n 0 min \nCalorie 0 kcal</string>
+    <string name="body_statistics">Body data:\nHeight：178cm\nWeight：65kg</string>
+    //setting
+    <string name="nan">Male</string>
+    <string name="nv">Female</string>
+    <string name="unknown">Unknown</string>
+    <string name="title_activity_test">test</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+</resources>
