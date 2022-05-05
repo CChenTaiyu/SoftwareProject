@@ -3,10 +3,30 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/60251/Desktop/MyApplication/app/src/main/res/layout/activity_home.xml" value="0.11277173913043478" />
-        <entry key="..\:/Users/60251/Desktop/MyApplication/app/src/main/res/layout/activity_register.xml" value="0.1" />
-        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/drawable/dot.xml" value="0.145" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.147" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.147" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1815" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.147" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/drawable/textview_border.xml" value="0.1815" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/layout/a.xml" value="0.2" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/layout/activity_booking.xml" value="0.20820863616930313" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/layout/activity_booking1.xml" value="0.20820863616930313" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/layout/activity_change_password.xml" value="0.20820863616930313" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/layout/activity_changepassword.xml" value="0.20820863616930313" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/layout/activity_course_page.xml" value="0.16799999999999998" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/layout/activity_course_page1.xml" value="0.20820863616930313" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/layout/activity_feedback.xml" value="0.20820863616930313" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/layout/activity_home1.xml" value="0.25364583333333335" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/layout/activity_home2.xml" value="0.264" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/layout/activity_register.xml" value="0.2" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/layout/activity_setting.xml" value="0.2" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/layout/activity_shi.xml" value="0.13852073535699017" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/layout/activity_shopping.xml" value="0.1" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/layout/activity_support.xml" value="0.13852073535699017" />
+        <entry key="..\:/tools/Android project/MyApplication/app/src/main/res/layout/activity_user_center.xml" value="0.264" />
       </map>
     </option>
   </component>

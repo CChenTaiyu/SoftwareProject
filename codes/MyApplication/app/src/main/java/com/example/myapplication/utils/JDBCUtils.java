@@ -16,9 +16,10 @@ public class JDBCUtils {
     }
 
     public static Connection getConn() {
+
         Connection  conn = null;
         try {
-            conn= DriverManager.getConnection("jdbc:mysql://10.0.2.2:3306/new_database","root","cdcr87432361");
+            conn= DriverManager.getConnection("jdbc:mysql://10.0.2.2:3306/nnr?allowPublicKeyRetrieval=true","root","zyf599992");
         }catch (Exception exception){
             exception.printStackTrace();
         }

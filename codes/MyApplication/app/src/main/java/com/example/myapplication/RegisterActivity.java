@@ -19,6 +19,7 @@ public class RegisterActivity extends AppCompatActivity {
     EditText username = null;
     EditText password = null;
     EditText phone = null;
+    boolean a = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,24 +31,33 @@ public class RegisterActivity extends AppCompatActivity {
         phone = findViewById(R.id.phone);
     }
 
+    public void back_to_login(View view){
+        Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+        startActivity(intent);
+    }
 
     public void register(View view){
 
-
-
         String cusername = username.getText().toString();
         String cpassword = password.getText().toString();
-
         System.out.println(phone.getText().toString());
-
         String cphone = phone.getText().toString();
 
+        int lusername = cusername.length();
+        int lpassword = cpassword.length();
+        int lphone = cphone.length();
 
         User user = new User();
 
         user.setUsername(cusername);
         user.setPassword(cpassword);
         user.setPhone(cphone);
+
+        for (int i = cphone.length();--i>=0;){
+            if (!Character.isDigit(cphone.charAt(i))){
+                a = false;
+            }
+        }
 
         new Thread(){
             @Override
@@ -62,12 +72,23 @@ public class RegisterActivity extends AppCompatActivity {
                 if(uu != null){
                     msg = 1;
                 }
-                else {
-                    boolean flag = userDao.register(user);
-                    if (flag) {
-                        msg = 2;
-                    }}
-                    hand.sendEmptyMessage(msg);
+                else{
+                    if (lusername==0||lusername>30||lpassword==0||lpassword>30||lphone==0||lphone>15){
+                        msg = 3;
+                    }
+                    else{
+                        if(!a){
+                            msg = 4;
+                        }
+                        else{
+                            boolean flag = userDao.register(user);
+                            if(flag){
+                                msg = 2;
+                            }
+                        }
+                    }
+                }
+                hand.sendEmptyMessage(msg);
 
             }
         }.start();
@@ -81,12 +102,22 @@ public class RegisterActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             if(msg.what == 0)
             {
-                Toast.makeText(getApplicationContext(),"注册失败",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Login has failed",Toast.LENGTH_LONG).show();
 
             }
             if(msg.what == 1)
             {
-                Toast.makeText(getApplicationContext(),"该账号已经存在，请换一个账号",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"This account already exists.",Toast.LENGTH_LONG).show();
+
+            }
+            if(msg.what == 3)
+            {
+                Toast.makeText(getApplicationContext(),"The input length does not meet the requirements",Toast.LENGTH_LONG).show();
+
+            }
+            if(msg.what == 4)
+            {
+                Toast.makeText(getApplicationContext(),"Wrong phone number input",Toast.LENGTH_LONG).show();
 
             }
             if(msg.what == 2)

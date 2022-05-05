@@ -65,26 +65,23 @@ public class UserDao {
     }
 
     public User findUser(String username){
-
-        String sql = "select * from users where username = ?";
+        System.out.println("nnr1");
+        String sql = "select * from user where username = ?";
 
         Connection  con = JDBCUtils.getConn();
         User user = null;
         try {
             PreparedStatement pst=con.prepareStatement(sql);
-
             pst.setString(1,username);
-
             ResultSet rs = pst.executeQuery();
 
             while (rs.next()){
 
-                int id = rs.getInt(0);
-                String password  = rs.getString(2);
-                String phone = rs.getString(3);
+                int id = rs.getInt(1);
+                username = rs.getString(2);
+                String password  = rs.getString(3);
+                String phone = rs.getString(4);
                 user = new User(id,username,password,phone);
-                System.out.println(user);
-                System.out.println(user);
             }
 
         } catch (SQLException throwables) {

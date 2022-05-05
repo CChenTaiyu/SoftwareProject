@@ -15,12 +15,13 @@ import com.example.myapplication.Dao.UserDao;
 
 public class MainActivity extends AppCompatActivity {
 
+    private String un;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
 
     public void reg(View view){
 
@@ -30,10 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void home(View view){
-
-        startActivity(new Intent(getApplicationContext(), homeActivity.class));
         EditText EditTextname = findViewById(R.id.username);
         EditText EditTextpassword = findViewById(R.id.password);
+        un = EditTextname.getText().toString();
 
         new Thread(){
             @Override
@@ -63,12 +63,17 @@ public class MainActivity extends AppCompatActivity {
 
             if(msg.what == 1)
             {
-                Toast.makeText(getApplicationContext(),"登录成功",Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(),home.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("Name",un);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                Toast.makeText(getApplicationContext(),"Login successful",Toast.LENGTH_LONG).show();
 
             }
             else
             {
-                Toast.makeText(getApplicationContext(),"登录失败",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Login failed",Toast.LENGTH_LONG).show();
             }
         }
     };

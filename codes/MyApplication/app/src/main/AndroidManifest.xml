@@ -12,6 +12,36 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
         <activity
+            android:name=".ChangePassword"
+            android:exported="false" />
+        <activity
+            android:name=".changepassword"
+            android:exported="false" />
+        <activity
+            android:name=".CoursePage"
+            android:exported="false" />
+        <activity
+            android:name=".Booking"
+            android:exported="false" />
+        <activity
+            android:name=".booking1"
+            android:exported="false" />
+        <activity
+            android:name=".Setting"
+            android:exported="false" />
+        <activity
+            android:name=".UserCenter"
+            android:exported="false" />
+        <activity
+            android:name=".shopping"
+            android:exported="false" />
+        <activity
+            android:name=".feedbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".home"
+            android:exported="false" />
+        <activity
             android:name=".homeActivity"
             android:exported="false" />
         <activity
