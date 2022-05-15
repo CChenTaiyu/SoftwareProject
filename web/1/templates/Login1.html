@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+<meta charset="utf-8">
+<title>HTML Registration Login Page Template</title>
+<link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+</head>
+
+<body>
+<div class="mes">
+<form>{{ message }}</form>
+</div>
+    <div class="content">
+        <div class="form sign-in">
+            <h2>Welcome back</h2>
+            <form action="login" method="post">
+                <label>
+                    <span>account</span>
+                    <input type="text" name="username"/>
+                </label>
+                <label>
+                    <span>password</span>
+                    <input type="password" name="password"/>
+                </label>
+                <p class="forgot-pass"><a href="javascript:">forget password?</a></p>
+                <button type="submit" class="submit">Log in</button>
+            </form>
+            <button type="button" class="fb-btn">use <span>facebook</span> account login</button>
+
+        </div>
+        <div class="sub-cont">
+            <div class="img">
+                <div class="img__text m--up">
+                    <h2>Not registered yet?</h2>
+                    <p>Sign up today and discover tons of opportunities!</p>
+                </div>
+                <div class="img__text m--in">
+                    <h2>Already have an account?</h2>
+                    <p>Log in if you have an account, long time no see!</p>
+                </div>
+                <div class="img__btn">
+                    <span class="m--up">register</span>
+                    <span class="m--in">log in</span>
+                </div>
+            </div>
+            <div class="form sign-up">
+                <h2>Sign up now</h2>
+                <form action="register" method="post">
+                    <label>
+                        <span>username</span>
+                        <input type="text" name="username"/>
+                    </label>
+                    <label>
+                        <span>password</span>
+                        <input type="password" name="password"/>
+                    </label>
+                    <label>
+                        <span>Confirm Password/span>
+                        <input type="password" name="password1"/>
+                    </label>
+                    <button type="submit" class="submit">register</button>
+                </form>
+                <button type="button" class="fb-btn">use <span>facebook</span> Account registration</button>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="../static/js/script.js"></script>
+
+	<div style="text-align:center;">
+
+</div>
+</body>
+
+</html>

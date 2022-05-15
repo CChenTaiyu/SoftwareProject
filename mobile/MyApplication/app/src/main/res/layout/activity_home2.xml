@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".home">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/imageButton6"
+                android:layout_width="fill_parent"
+                android:layout_height="99dp"
+                android:src="@drawable/top" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button7"
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:layout_weight="1"
+                    android:text="Booking"
+                    android:onClick="Booking"/>
+
+                <Button
+                    android:id="@+id/button8"
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:layout_weight="1"
+                    android:text="Market"
+                    android:onClick="shopping"/>
+
+                <Button
+                    android:id="@+id/button9"
+                    android:layout_width="0dp"
+                    android:layout_height="54dp"
+                    android:layout_weight="1"
+                    android:text="Timetable"
+                    android:onClick="timetable"/>
+            </LinearLayout>
+
+            <ScrollView
+                android:id="@+id/scrollView5"
+                android:layout_width="match_parent"
+                android:layout_height="370dp">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Welcome come to xx Gym!"
+                        android:textColor="@color/black"
+                        android:textSize="25dp"
+                        android:layout_marginLeft="50dp"/>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <ViewFlipper
+                            android:id="@+id/flipper"
+                            android:layout_width="match_parent"
+                            android:layout_height="150dp"
+                            android:layout_weight="1"
+                            android:inAnimation="@anim/left_in"
+                            android:outAnimation="@anim/right_out">
+
+                            <ImageView
+                                android:id="@+id/imageView7"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/im1" />
+
+                            <ImageView
+                                android:id="@+id/imageView8"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/im2" />
+                            <ImageView
+                                android:id="@+id/imageView9"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/im3" />
+                            <ImageView
+                                android:id="@+id/imageView10"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:src="@drawable/im4" />
+                        </ViewFlipper>
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageButton
+                    android:id="@+id/imageButton2"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:onClick="Logout"
+                    android:src="@drawable/ic_home_black_24dp" />
+
+                <ImageButton
+                    android:id="@+id/imageButton3"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:onClick="feedback"
+                    android:src="@drawable/ic_dashboard_black_24dp" />
+
+                <ImageButton
+                    android:id="@+id/imageButton5"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_weight="1"
+                    android:onClick="UserCenter"
+                    android:src="@drawable/ic_notifications_black_24dp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

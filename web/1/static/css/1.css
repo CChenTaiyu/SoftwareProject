@@ -1,0 +1,157 @@
+body.login{/*背景自适应*/
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	background: url(../pic/pic2.jfif)  no-repeat center 0px;
+	background-size: cover;
+background-image：radial-gradient（）
+     background-position: center 0;
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+      -webkit-background-size: cover;
+      -o-background-size: cover;
+      -moz-background-size: cover;
+      -ms-background-size: cover;
+
+}
+/* 设置卡片主体区域的宽度 */
+
+.layui-card-body {
+    width: 500px;
+}
+
+
+/* 设置按钮行的样式 */
+
+.row2 {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+
+/* 设置裁剪区域的样式 */
+
+.cropper-box {
+    width: 350px;
+    height: 350px;
+    background-color: cyan;
+    overflow: hidden;
+}
+
+
+/* 设置第一个预览区域的样式 */
+
+.w100 {
+    width: 100px;
+    height: 100px;
+    background-color: gray;
+}
+
+
+/* 设置第二个预览区域的样式 */
+
+.w50 {
+    width: 50px;
+    height: 50px;
+    background-color: gray;
+    margin-top: 50px;
+}
+
+
+/* 设置预览区域下方文本的样式 */
+
+.size {
+    font-size: 12px;
+    color: gray;
+    text-align: center;
+}
+
+
+/* 设置图片行的样式 */
+
+.row1 {
+    display: flex;
+}
+
+
+/* 设置 preview-box 区域的的样式 */
+
+.preview-box {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+}
+
+
+/* 设置 img-preview 区域的样式 */
+
+.img-preview {
+    overflow: hidden;
+    border-radius: 50%;
+}
+div.login{
+
+    position:absolute;
+    left:43.5%;
+    top:30%;
+    text-align: center;
+}
+div.login1{
+
+    position:absolute;
+    left:43.5%;
+    top:20%;
+    text-align: center;
+}
+div.mes2{
+    position:absolute;
+    left:43.5%;
+    top:10%;
+    text-align: center;
+
+}
+
+div.img{
+
+    position:absolute;
+    left:400px;
+    top:40%;
+}
+
+
+
+p.intro{
+    font-family:Comic Sans MS;
+    position:absolute;
+    font-size:20px;
+    top:10%;
+    text-align: center;
+    left:10%;
+    width:80%;
+    float:left;
+    white-space:wrap;
+    word-break: break-all;
+}
+
+div.dis{
+position:absolute;
+top:5%;
+left:-30%;
+}
+div.cha{
+position:absolute;
+top:5%;
+left:80%;
+}
+
+div.mes{
+    position:absolute;
+    left:43.5%;
+    top:10%;
+    text-align: center;
+
+}
+
+

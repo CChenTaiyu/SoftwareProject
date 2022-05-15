@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>course management</title>
+    <script src="../static/Javascript.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="s
+    ha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        .dialog_outter {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .dialog_wrapper {
+            width: 400px;
+            background: #fff;
+            border: 1px solid #f0f0f0;
+            border-radius: 10px;
+            padding: 10px;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        .dialog_close_btn {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+            cursor: pointer;
+        }
+
+        .dialog_title {
+            font-size: 18px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .dialog_content {
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+
+        .dialog_btn_group {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn_confirm {
+            background-color: Blue;
+            color: #fff;
+            padding: 5px 10px;
+            border: 1px solid blue;
+            border-radius: 4px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .btn_cancel {
+            background-color: #fff;
+            padding: 5px 10px;
+            border: 1px solid #000;
+            border-radius: 4px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .form_item span {
+            display: inline-block;
+            width: 100px;
+        }
+
+        .form_item input{
+            width: 200px;
+            height: 25px;
+            line-height: 25px;
+            outline: none;
+            border-radius: 5px;
+        }
+
+        .form_item {
+            margin-bottom: 10px;
+        }
+
+        .form_item:last-child {
+            margin-bottom: 0;
+        }
+
+        .overlap {
+            background: #000;
+            opacity: 0.6;
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: absolute;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+<div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            {% if user %}
+            <a class="navbar-brand">
+                <form>administrator system</form>
+            </a>
+            {% endif %}
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="course_mana">Course management</a>
+                    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+                    <a class="nav-link" href="goto_feedback">Feedback query</a>
+                    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+                    <a class="nav-link" href="logout">Sign out</a>
+                    <p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</p>
+                    <a class="nav-link">
+                        <div id="times"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!--    <form>{{ message }}</form>-->
+</div>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>serial number</th>
+        <th>Course Title</th>
+        <th>Course Dates</th>
+        <th>Course capacity</th>
+        <th>Number of people who have signed up</th>
+        <th>Course Price</th>
+        <th>Types of courses</th>
+        <th>Course duration</th>
+        <th>Course Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for i in course %}
+    <tr>
+        <td>{{ i['id'] }}</td>
+        <td>{{ i['course_name'] }}</td>
+        <td>{{ i['date'] }}</td>
+        <td>{{ i['capacity'] }}</td>
+        <td>{{ i['applicants'] }}</td>
+        <td>{{ i['count'] }}</td>
+        <td>{{ i['category'] }}</td>
+        <td>{{ i['duration'] }}</td>
+        <td>{{ i['description'] }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<!--        '<div class="form_item">'+-->
+<!--        '<span>课程容量：</span>'+-->
+<!--        '<input type="text" name="capacity">'+-->
+<!--        '</div>' +-->
+<div class="overlap"></div>
+<div onclick="handleClick()">Click to add a new course</div>
+<div class="dialog_outter"></div>
+<script>
+    let dialog_outter = document.querySelector(".dialog_outter")
+    let overlap = document.querySelector(".overlap")
+    const dialog_html_str = '<div class="dialog_wrapper">' +
+        '<div class="dialog_close_btn" onclick="closeDialog()">X</div>' +
+        '<div class="dialog_title">Create a course</div>' + '<form action="add_course" method="post"> ' +
+        '<div class="dialog_content">' +
+        '<div class="form_item">' +
+        '<span>Course Title：</span>' +
+        '<input type="text" name="course_name">' +
+        '</div>' +
+        '<div class="form_item">' +
+        '<span>Course Dates：</span>' +
+        '<input type="text" name="date">'+
+        '</div>'+
+        '<div class="form_item">'+
+        '<span>Course capacity：</span>'+
+        '<input type="text" name="capacity">'+
+        '</div>' +
+        '<div class="form_item">'+
+        '<span>Course Price：</span>'+
+        '<input type="text" name="count">'+
+        '</div>' +
+                        '<div class="form_item">'+
+        '<span>Types of courses：</span>'+
+        '<input type="text" name="category">'+
+        '</div>' +
+                '<div class="form_item">'+
+        '<span>Course duration：</span>'+
+        '<input type="text" name="duration">'+
+        '</div>' +
+                '<div class="form_item">'+
+        '<span>Course Description：</span>'+
+        '<input type="text" name="description">'+
+        '</div>' +
+        '</div>' +
+        '<div class="dialog_btn_group">'  + '<button class="btn_confirm" type="submit">sure</button>' +
+        '<div class="btn_cancel" onclick="closeDialog()">Cancel</div>' +
+        '</div>' +
+        '</div> </form>'
+    function handleClick() {
+        overlap.style.display = "block";
+        let fg = document.createRange().createContextualFragment(dialog_html_str)
+        dialog_outter.appendChild(fg)
+    }
+
+    function closeDialog() {
+        overlap.style.display = "none";
+        let dialog = document.querySelector(".dialog_wrapper");
+        dialog.remove(1);
+    }
+
+
+
+</script>
+<form action="delete_course" method="post">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" name="id" placeholder="Please enter the serial number of the course to be deleted" aria-label="Recipient's username"
+               aria-describedby="button-addon2">
+        <button class="btn btn-outline-secondary" type="submit">修改</button>
+    </div>
+</form>
+</body>
+</html>
